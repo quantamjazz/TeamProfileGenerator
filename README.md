@@ -30,7 +30,7 @@ Once finished, the HTML will be generated in the output folder.
 
 ## Contributing
 
-Contributions are welcome! Please follow the Contributor Covenant when contributing to this project.
+Contributions are welcome! Contact github: quantamjazz
 
 ## License
 
