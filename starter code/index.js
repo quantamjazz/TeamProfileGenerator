@@ -16,10 +16,29 @@ const teamMembers = [];
 function promptManager() {
   inquirer
     .prompt([
-      // Add prompts for manager details
+      {
+        type: 'input',
+        name: 'name',
+        message: 'Enter the manager\'s name:',
+      },
+      {
+        type: 'input',
+        name: 'id',
+        message: 'Enter the manager\'s employee ID:',
+      },
+      {
+        type: 'input',
+        name: 'email',
+        message: 'Enter the manager\'s email:',
+      },
+      {
+        type: 'input',
+        name: 'officeNumber',
+        message: 'Enter the manager\'s office number:',
+      },
     ])
     .then((answers) => {
-      const manager = new Manager(/* Pass manager details from answers */);
+      const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
       teamMembers.push(manager);
       promptTeamMember();
     });
@@ -29,7 +48,12 @@ function promptManager() {
 function promptTeamMember() {
   inquirer
     .prompt([
-      // Add prompt for selecting role or finishing
+      {
+        type: 'list',
+        name: 'role',
+        message: 'Select the team member\'s role:',
+        choices: ['Engineer', 'Intern', 'Finish'],
+      },
     ])
     .then((answers) => {
       if (answers.role === "Engineer") {
@@ -49,10 +73,29 @@ function promptTeamMember() {
 function promptEngineer() {
   inquirer
     .prompt([
-      // Add prompts for engineer details
+      {
+        type: 'input',
+        name: 'name',
+        message: 'Enter the engineer\'s name:',
+      },
+      {
+        type: 'input',
+        name: 'id',
+        message: 'Enter the engineer\'s employee ID:',
+      },
+      {
+        type: 'input',
+        name: 'email',
+        message: 'Enter the engineer\'s email:',
+      },
+      {
+        type: 'input',
+        name: 'github',
+        message: 'Enter the engineer\'s GitHub username:',
+      },
     ])
     .then((answers) => {
-      const engineer = new Engineer(/* Pass engineer details from answers */);
+      const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
       teamMembers.push(engineer);
       promptTeamMember();
     });
@@ -62,10 +105,29 @@ function promptEngineer() {
 function promptIntern() {
   inquirer
     .prompt([
-      // Add prompts for intern details
+      {
+        type: 'input',
+        name: 'name',
+        message: 'Enter the intern\'s name:',
+      },
+      {
+        type: 'input',
+        name: 'id',
+        message: 'Enter the intern\'s employee ID:',
+      },
+      {
+        type: 'input',
+        name: 'email',
+        message: 'Enter the intern\'s email:',
+      },
+      {
+        type: 'input',
+        name: 'school',
+        message: 'Enter the intern\'s school:',
+      },
     ])
     .then((answers) => {
-      const intern = new Intern(/* Pass intern details from answers */);
+      const intern = new Intern(answers.name, answers.id, answers.email, answers.school);
       teamMembers.push(intern);
       promptTeamMember();
     });
